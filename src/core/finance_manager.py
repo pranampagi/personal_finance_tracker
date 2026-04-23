@@ -1,7 +1,7 @@
-from database import Database
+from .database import Database
 
 class FinanceManager:
-    def __init__(self, db_path="finance.db"):
+    def __init__(self, db_path=None):
         self.db = Database(db_path)
 
     def add_entry(self, date, description, category, trans_type, amount):

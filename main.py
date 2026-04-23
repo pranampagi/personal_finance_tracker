@@ -1,10 +1,10 @@
 import tkinter as tk
-from app import FinanceApp
+from src.ui.app import FinanceApp
 
 def main():
     root = tk.Tk()
-    # Set icon if available (optional)
-    # root.iconbitmap('icon.ico') 
+    # Style the root window
+    root.configure(bg="#f8fafc")
     app = FinanceApp(root)
     root.mainloop()
 

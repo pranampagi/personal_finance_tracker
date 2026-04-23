@@ -1,8 +1,14 @@
 import sqlite3
+import os
 from datetime import datetime
 
 class Database:
-    def __init__(self, db_name="finance.db"):
+    def __init__(self, db_name=None):
+        if db_name is None:
+            # Default to data folder relative to project root
+            base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+            db_name = os.path.join(base_dir, "data", "finance.db")
+        
         self.conn = sqlite3.connect(db_name)
         self.cursor = self.conn.cursor()
         self.create_tables()
